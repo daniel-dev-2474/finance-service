@@ -36,6 +36,7 @@ public final class PurchaseMapper {
            return PurchasedProduct.builder()
                .productId(product.getId())
                .name(product.getName())
+               .productType(product.getType())
                .unitPrice(product.getPrice())
                .quantity(itemRequest.getQuantity())
                .subtotal(product.getPrice().multiply(BigDecimal.valueOf(itemRequest.getQuantity())))

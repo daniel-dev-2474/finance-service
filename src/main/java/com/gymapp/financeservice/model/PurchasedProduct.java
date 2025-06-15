@@ -1,5 +1,6 @@
 package com.gymapp.financeservice.model;
 
+import com.gymapp.financeservice.constant.ProductType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +26,8 @@ public class PurchasedProduct {
    * Name of the product at the moment of purchase.
    */
   private String name;
+
+  private ProductType productType;
 
   /**
    * Number of units purchased.

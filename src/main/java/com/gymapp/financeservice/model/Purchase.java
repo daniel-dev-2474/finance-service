@@ -2,6 +2,7 @@ package com.gymapp.financeservice.model;
 
 import com.gymapp.financeservice.constant.Currency;
 import com.gymapp.financeservice.constant.PaymentMethod;
+import com.gymapp.financeservice.constant.PurchaseStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -55,8 +56,22 @@ public class Purchase {
    */
   private PaymentMethod paymentMethod;
 
-  /**
-   * Timestamp when the purchase was completed.
-   */
+
+  /** Current status of the purchase (PENDING, PAID, FAILED, EXPIRED). */
+  private PurchaseStatus status;
+
+  /** External payment ID returned by Stripe, MercadoPago, etc. */
+  private String externalPaymentId;
+
+  /** Payment reference for OXXO/SPEI-type methods. */
+  private String paymentReference;
+
+  /** Expiration time for the payment (e.g. 48h after creation). */
+  private LocalDateTime expiresAt;
+
+  /** Timestamp when the purchase was created. */
   private LocalDateTime createdAt;
+
+  /** Timestamp when the purchase was successfully paid. */
+  private LocalDateTime paidAt;
 }
